@@ -1,0 +1,35 @@
+
+.screen{
+    background-color: #ffffff;
+    border: solid 1px;
+    border-radius: 5px;
+  }
+  
+  .logo{
+    margin-left: 25%;
+  }
+  
+  .forgetPass{
+    position: absolute;
+    color: #0869AE;
+    right: 10px;
+  }
+  
+  
+  .btnFormSingup:focus { 
+    height: 50px;   
+    background-color:#ffffff;
+  }
+  .btnFormLogin:focus {  
+    height: 50px;  
+    background-color:#ffffff; 
+  }
+  
+  .btnFormSingup { 
+    height: 50px;   
+    background-color:#cec9c9;    
+  }
+  .btnFormLogin {  
+    height: 50px;  
+    background-color:#cec9c9;   
+  }

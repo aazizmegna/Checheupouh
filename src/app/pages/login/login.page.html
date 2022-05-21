@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col></ion-col>
+        <ion-col size="12" size-sm class="ion-align-self-center">
+          <img src="../assets/img/logo.png" class="logo">
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4"></ion-col>
+        <ion-col size="12" size-sm class="screen">
+          <ion-row class="ion-justify-content-center">
+            <ion-col ><ion-button class="btnFormLogin" [(ngModel)]="loginDisplay" ngDefaultControl fill="outline" expand="block" (click)="callLoginForm()">Login</ion-button></ion-col>
+            <ion-col><ion-button class="btnFormSingup" [(ngModel)]="signupDisplay" ngDefaultControl fill="outline" expand="block" (click)="callSignupForm()">Sign Up</ion-button></ion-col>
+          </ion-row>
+
+          <!-- Login form-->
+          <form *ngIf="loginDisplay">
+            <ion-grid class="ion-margin-top">
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="5"><ion-button color="primary" expand="block" id="login"><i class="bi bi-facebook"></i>Facebook</ion-button></ion-col>
+                <ion-col size="5"><ion-button color="danger" expand="block" id="login">Google</ion-button></ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="10">
+                  <ion-input type="string" name="username" class="input-white" color="primary" placeholder="Email address"></ion-input>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-input type="password" name="password" class="input-white mt-2" color="primary" placeholder="Password"></ion-input>
+                <p class="forgetPass">Forget password</p>
+                </ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center ion-margin-top">
+                <ion-col size="10"><ion-button type="submit" fill="solid" color="secondary" expand="block" id="login">Login</ion-button></ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+
+          <!--Sign Up form-->
+          <form *ngIf="signupDisplay">
+            <ion-grid class="ion-margin-top">
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="5"><ion-button color="primary" expand="block" id="login">Facebook</ion-button></ion-col>
+                <ion-col size="5"><ion-button color="danger" expand="block" id="login">Google</ion-button></ion-col>
+              </ion-row>
+              <ion-row class="ion-justify-content-center">
+                <ion-col size="10">
+                  <ion-input type="string" name="firstName" class="input-white" color="primary" placeholder="First Name"></ion-input>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-input type="string" name="lastName" class="input-white" color="primary" placeholder="Last Name"></ion-input>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-input type="string" name="email" class="input-white" color="primary" placeholder="Email address"></ion-input>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-input type="password" name="password" class="input-white" color="primary" placeholder="Password"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-row class="ion-justify-content-center ion-margin-top">
+              <ion-col size="10">
+                <ion-button expand="block" fill="solid" type="submit" color="secondary">Sign Up</ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-col>
+        
+        <ion-col size="4"></ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  
+</ion-content>
