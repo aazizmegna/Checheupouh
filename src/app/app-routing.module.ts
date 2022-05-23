@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'detail',
+    redirectTo: 'post',
     pathMatch: 'full'
   },
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'detail',
     loadChildren: () => import('./pages/detail/detail.module').then( m => m.DetailPageModule)
+  },
+  {
+    path: 'post',
+    loadChildren: () => import('./pages/post/post.module').then( m => m.PostPageModule)
   },
 ];
 

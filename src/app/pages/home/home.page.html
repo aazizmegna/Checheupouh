@@ -38,7 +38,7 @@
                 </div>
                 <div class="row">
 
-                    <div class="col-sm-6">
+                    <div *ngFor="let post of posts" class="col-sm-6">
                         <div class="panel">
                             <div class="panel-body p-t-10">
                                 <div class="media-main">
@@ -52,16 +52,16 @@
                                     <ion-grid>
                                         <ion-row>
                                             <ion-col class="info">
-                                                <h6>Depart</h6>
-                                                <p class="text-muted">Ville</p>
-                                                <h6>Arriver</h6>
-                                                <p class="text-muted">Ville</p>
+                                                <h6>{{post?.countryDeparture}}</h6>
+                                                <p class="text-muted">{{post?.cityDeparture}}</p>
+                                                <h6>{{post?.countryArrival}}</h6>
+                                                <p class="text-muted">{{post?.cityArrival}}</p>
                                                 
                                             </ion-col>
                                             <ion-col class="info">
-                                                <h6 class="date"><b> 25 <br> Juin</b></h6>
-                                                <h6>10$ / <img src="../assets/img/kg.png" class="kg"></h6>
-                                                <h6>10$ / <img src="../assets/img/doc.svg" ></h6>
+                                                <h6 class="date"><b> {{post?.date}}</b></h6>
+                                                <h6>$ {{post?.kiloPrice}} / <img src="../assets/img/kg.png" class="kg"></h6>
+                                                <h6>$ {{post?.docPrice}} / <img src="../assets/img/doc.svg" ></h6>
                                                
                                             </ion-col>
                                             <ion-col>
