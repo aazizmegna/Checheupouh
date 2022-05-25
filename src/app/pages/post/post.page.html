@@ -5,7 +5,7 @@
       <ion-header>
         <ion-toolbar>
           <ion-row>
-            <ion-col><img class="navbar-brand" src="../assets/img/logo1.png"></ion-col>
+            <ion-col><img (click)="goToHomePage()" class="navbar-brand" src="../assets/img/logo1.png"></ion-col>
             <ion-col> <a class="pull-left navbar-link" (click)="onOpenModal(null!,'add')">Annonce<span class="sr-only"></span></a></ion-col>
             <ion-col>
               <form class=" pull-right form-inline my-2 my-lg-0">

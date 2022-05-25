@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Post } from './post';
 import { PostService } from './post.service';
@@ -15,7 +16,7 @@ export class PostPage implements OnInit {
   public editPost!: Post;
   public deletePost!: Post;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private route: Router) { }
 
   ngOnInit() {
     this.getPosts();
@@ -110,6 +111,10 @@ export class PostPage implements OnInit {
     }
     container.appendChild(button);
     button.click();
+  }
+
+  public goToHomePage() {
+    this.route.navigate(['/home']);
   }
 
 }

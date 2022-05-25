@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Post } from '../post/post';
 import { PostService } from '../post/post.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ export class HomePage implements OnInit{
 
   public posts: Post[];
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService, public route: Router) {}
 
   ngOnInit() {
     this.getPosts();
@@ -27,6 +28,10 @@ export class HomePage implements OnInit{
         alert(error.message);
       }
     );
+  }
+
+  public goToDetailPage() {
+    this.route.navigate(['/detail']);
   }
 
   

@@ -42,7 +42,7 @@
                 </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center ion-margin-top">
-                <ion-col size="10"><ion-button type="submit" fill="solid" color="secondary" expand="block" id="login">Login</ion-button></ion-col>
+                <ion-col size="10"><ion-button type="submit" fill="solid" color="secondary" expand="block" id="login" (click)="goToHomePage()">Login</ion-button></ion-col>
               </ion-row>
             </ion-grid>
           </form>
@@ -71,7 +71,7 @@
             </ion-grid>
             <ion-row class="ion-justify-content-center ion-margin-top">
               <ion-col size="10">
-                <ion-button expand="block" fill="solid" type="submit" color="secondary">Sign Up</ion-button>
+                <ion-button expand="block" fill="solid" type="submit" color="secondary" (click)="callLoginForm()">Sign Up</ion-button>
               </ion-col>
             </ion-row>
           </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginPage implements OnInit {
   loginDisplay: boolean = false;
   signupDisplay: boolean = false;
 
-  constructor() { }
+  constructor(public route: Router) { }
 
   ngOnInit() {
     this.loginDisplay= true;
@@ -24,4 +25,13 @@ export class LoginPage implements OnInit {
     this.loginDisplay= false;
     this.signupDisplay= true;
   }
+
+  public goToHomePage() {
+    this.route.navigate(['/home']);
+  }
+  public goToLoginPage() {
+    this.route.navigate(['/login']);
+  }
+
+
 }

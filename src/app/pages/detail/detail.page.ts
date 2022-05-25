@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPage implements OnInit {
 
-  constructor() { }
+  constructor(public route: Router) { }
 
   ngOnInit() {
+  }
+  public goToLoginPage() {
+    this.route.navigate(['/login']);
   }
 
 }

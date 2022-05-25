@@ -42,12 +42,13 @@
                         <div class="panel">
                             <div class="panel-body p-t-10">
                                 <div class="media-main">
-                                    <a class="pull-left" href="#">
+                                    <div class="pull-left" href="#">
                                         <img class="thumb-lg img-circle bx-s" src="https://bootdey.com/img/Content/user_3.jpg" alt="">
                                         <div class="userinfo"> 
-                                           <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Abdel Aziz</div>                                         
+                                           <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Abdel Aziz</div>                                        
                                         </div>
-                                    </a>
+                                        <div class="publishTime">Publié il ya 1 heure</div>
+                                    </div>
 
                                     <ion-grid>
                                         <ion-row>
@@ -55,18 +56,18 @@
                                                 <h6>{{post?.countryDeparture}}</h6>
                                                 <p class="text-muted">{{post?.cityDeparture}}</p>
                                                 <h6>{{post?.countryArrival}}</h6>
-                                                <p class="text-muted">{{post?.cityArrival}}</p>
-                                                
+                                                <p class="text-muted">{{post?.cityArrival}}</p> 
                                             </ion-col>
                                             <ion-col class="info">
                                                 <h6 class="date"><b> {{post?.date}}</b></h6>
                                                 <h6>$ {{post?.kiloPrice}} / <img src="../assets/img/kg.png" class="kg"></h6>
                                                 <h6>$ {{post?.docPrice}} / <img src="../assets/img/doc.svg" ></h6>
-                                               
                                             </ion-col>
                                             <ion-col>
-                                                <img src="../assets/img/aircraft.svg" alt="">
-                                               <div class="publishTime">Publié il ya 1 heure</div>
+                                                <div class="avion">
+                                                    <img src="../assets/img/aircraft.svg" alt="">
+                                                    <ion-button (click)="goToDetailPage()">Details</ion-button>
+                                                </div>
                                             </ion-col>
                                         </ion-row>
                                     </ion-grid>   
