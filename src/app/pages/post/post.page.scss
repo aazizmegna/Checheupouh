@@ -1,22 +1,96 @@
-.card {
-    border: none;
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
-    margin-bottom: 30px;
-  }
-  .w-60 {
-    width: 60px;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 10px;
-    font-weight: 600;
-  }
-  p, ion-col{
-      color: #080808;
-  }
-  .date{
-      color: #0000FF;
-      font-size: 30px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 
+  .logo{
+    margin-left: 25%;
   }
+
+  .panel-body{
+    margin-top:20px;
+    background-color: #edf0f0; 
+    border: solid 1px;  
+    border-radius: 5px;
+}
+.btn-primary, 
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.btn-primary.focus, 
+.btn-primary:active, 
+.btn-primary:focus, 
+.btn-primary:hover, 
+.open>.dropdown-toggle.btn-primary {
+    background-color: #3bc0c3;
+    border: 1px solid #3bc0c3;
+}
+.p-t-10 {
+    padding-top: 10px !important;
+}
+.media-main a.pull-left {
+    width: 100px;
+}
+.thumb-lg {
+    height: 80px;
+    width: 80px;
+}
+ion-grid{
+    color: #70726E;
+}
+.media-main .info {
+    overflow: hidden;
+    color: #000;
+}
+.media-main .info h4 {
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+.social-links li a {
+    background: #EFF0F4;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    color: #7A7676;
+}
+
+.text-muted{
+font-size: x-small;
+}
+.detail{
+    position: fixed;
+top: 215px;
+left: 350px;
+}
+.name{
+    left: 15px;
+    font-size: 12px;
+    color: #000;
+}
+.publishTime{
+    position: absolute;
+    font-size: 10px;
+    color: #000;
+    bottom: 0px;
+    right: 0px;
+}
+.kg{
+    height: 20px;
+    width: 20px;
+}
+.weight{
+    font-size: 20px;
+    color: red;
+    }
+
+.date{
+    font-size: 25px;
+    color: blue;
+}
+
+.modal-title {
+    color: #000;
+}

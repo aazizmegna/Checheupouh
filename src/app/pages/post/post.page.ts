@@ -19,7 +19,10 @@ export class PostPage implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+    console.log(this.getPosts());
+    
   }
+
   public getPosts(): void {
     this.postService.getPosts().subscribe(
       (response: Post[]) => {
@@ -78,11 +81,7 @@ export class PostPage implements OnInit {
        || post.cityDeparture.toLowerCase().indexOf(key.toLowerCase()) !== -1
        || post.cityArrival.toLowerCase().indexOf(key.toLowerCase()) !== -1
        || post.date.toLowerCase().indexOf(key.toLowerCase()) !== -1
-       || post.info.toLowerCase().indexOf(key.toLowerCase()) !== -1
-       || post.payment.toLowerCase().indexOf(key.toLowerCase()) !== -1
-       || post.kiloPrice !== -1
-       || post.docPrice !== -1
-       || post.weight !== -1){
+       || post.info.toLowerCase().indexOf(key.toLowerCase()) !== -1){
         results.push(post);
        }
     }
@@ -109,7 +108,7 @@ export class PostPage implements OnInit {
       this.deletePost = post;
       button.setAttribute('data-target','#deletePostModal');
     }
-    container?.appendChild(button);
+    container.appendChild(button);
     button.click();
   }
 

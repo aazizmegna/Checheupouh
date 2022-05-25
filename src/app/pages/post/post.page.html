@@ -1,233 +1,230 @@
-<ion-header>
-  <ion-toolbar class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <img class="navbar-brand" src="../assets/img/logo1.png">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-link" (click)="onOpenModal(null!,'add')">Add Post<span class="sr-only"></span></a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <form class="form-inline my-2 my-lg-0">
-              <input type="search" (ngModelChange)="searchPosts(key.value)" name="key" id="searchName" 
-              #key="ngModel" ngModel class="form-control mr-sm-2" placeholder="Search posts...">
-            </form>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </ion-toolbar>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-</ion-header>
-
-
-<ion-content>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <ion-content [fullscreen]="true">
+    <div id="main-container">
+      <ion-header>
+        <ion-toolbar>
+          <ion-row>
+            <ion-col><img class="navbar-brand" src="../assets/img/logo1.png"></ion-col>
+            <ion-col> <a class="pull-left navbar-link" (click)="onOpenModal(null!,'add')">Annonce<span class="sr-only"></span></a></ion-col>
+            <ion-col>
+              <form class=" pull-right form-inline my-2 my-lg-0">
+                <input type="search" (ngModelChange)="searchPosts(key.value)" name="key" id="searchName" 
+                #key="ngModel" ngModel class="form-control mr-sm-2" placeholder="Recherche...">
+              </form>
+            </ion-col>
+          </ion-row>
+        </ion-toolbar>
+      </ion-header>
+  
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col></ion-col>
+            <ion-col size="12" size-sm class="ion-align-self-center">
+              
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
     
-    <div class="container" id="main-container">
-        <div class="row">
-            <div *ngFor="let post of posts" class="col-md-6 col-xl-3">
-                <div class="card m-b-30">
-                    <div>
-                        <div>                
-                                                    
-                          <ion-row>
-                            <ion-col class="text-center date"><b>{{post?.date}}</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Pays Départ</ion-col>
-                            <ion-col><b>{{post?.countryDeparture}}</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Ville Départ</ion-col>
-                            <ion-col><b>{{post?.cityDeparture}}</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Pays Arrivé</ion-col>
-                            <ion-col><b>{{post?.countryArrival}}</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Ville Arrivé</ion-col>
-                            <ion-col><b>{{post?.cityArrival}}</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Kilo Disponible</ion-col>
-                            <ion-col><b>{{post?.weight}} KG</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Prix par Kilo</ion-col>
-                            <ion-col><b>$ {{post?.kiloPrice}} / KG</b></ion-col>
-                          </ion-row>
-                          <ion-row>
-                            <ion-col>Prix par Document</ion-col>
-                            <ion-col><b>$ {{post?.docPrice}} / Document</b></ion-col>
-                          </ion-row>
-                        </div>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Paiement:</b> {{post?.payment}}</li>
-                        <li class="list-group-item"><b>Info:</b> {{post?.info}}</li>
-                    </ul>
-                    <div class="card-body ms-auto">
-                        <div class="float-right btn-group btn-group-sm ">
-                            <a (click)="onOpenModal(post,'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="modal" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                            <a (click)="onOpenModal(post,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="modal" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+          <ion-row class="ion-align-items-center">
+            <ion-col>
   
+              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+              <div class="container bootstrap snippets bootdey">
+                  <div class="row">
   
-  <!-- Add post Modal -->
-  <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form #addForm="ngForm" (ngSubmit)="onAddPost(addForm)">
-            <div class="form-group">
-              <label for="countryDeparture">Country Departure </label>
-              <input type="text" ngModel name="countryDeparture" class="form-control" id="countryDeparture" placeholder="Country Departure" required>
-            </div>
-            <div class="form-group">
-              <label for="cityDeparture">City Departure</label>
-              <input type="text" ngModel name="cityDeparture" class="form-control" id="cityDeparture" placeholder="City Departure" required>
-            </div>
-            <div class="form-group">
-              <label for="countryArrival">Country Arrival</label>
-              <input type="text" ngModel name="countryArrival" class="form-control" id="countryArrival" placeholder="Country Arrival" required>
-            </div>
-            <div class="form-group">
-              <label for="cityArrival">City Arrival</label>
-              <input type="text" ngModel name="cityArrival" class="form-control" id="cityArrival" placeholder="City Arrival" required>
-            </div>
-            <div class="form-group">
-              <label for="weight">Weight</label>
-              <input type="text" ngModel name="weight" class="form-control" id="weight" placeholder="Weight (KG)" required>
-            </div>
-            <div class="form-group">
-              <label for="date">Date</label>
-              <input type="text" ngModel name="date" class="form-control" id="date" placeholder="(jj/mm/aaaa)" required>
-            </div>
-            <div class="form-group">
-              <label for="kiloPrice">Prix par kilo</label>
-              <input type="text" ngModel name="kiloPrice" class="form-control" id="kiloPrice" placeholder="Valeur en '$'" required>
-            </div>
-            <div class="form-group">
-              <label for="docPrice">Prix par Document</label>
-              <input type="text" ngModel name="docPrice" class="form-control" id="docPrice" placeholder="Valeur en '$'" required>
-            </div>
-            <div class="form-group">
-              <label for="info">Info</label>
-              <input type="text" ngModel name="info" class="form-control" id="info" placeholder="Info" required>
-            </div>
+                      <div *ngFor="let post of posts" class="col-sm-6">
+                          <div class="panel">
+                              <div class="panel-body p-t-10">
+                                  <div class="media-main">
+                                      <a class="pull-left" href="#">
+                                          <img class="thumb-lg img-circle bx-s" src="https://bootdey.com/img/Content/user_3.jpg" alt="">
+                                          <div class="userinfo"> 
+                                             <div class="name">&nbsp;&nbsp;&nbsp;&nbsp;Abdel Aziz</div>                                         
+                                          </div>
+                                      </a>
   
-            <div class="modal-footer">
-              <button type="button" id="add-post-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+                                      <ion-grid>
+                                          <ion-row>
+                                              <ion-col class="info">
+                                                  <h6>{{post?.countryDeparture}}</h6>
+                                                  <p class="text-muted">{{post?.cityDeparture}}</p>
+                                                  <h6>{{post?.countryArrival}}</h6>
+                                                  <p class="text-muted">{{post?.cityArrival}}</p>
+                                              </ion-col>
+                                              <ion-col class="info">
+                                                  <h6 class="date"><b> {{post?.date}}</b></h6>
+                                                  <h6 class="weight"><b>{{post?.weight}} KG</b></h6>
+                                                  <h6>$ {{post?.kiloPrice}} / <img src="../assets/img/kg.png" class="kg"></h6>
+                                                  <h6>$ {{post?.docPrice}} / <img src="../assets/img/doc.svg" ></h6>
+                                              </ion-col>
+                                              <ion-col class="info">                                           
+                                                  <div class="float-right btn-group btn-group-sm">
+                                                    <a (click)="onOpenModal(post,'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="modal" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                                                    <a (click)="onOpenModal(post,'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="modal" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                                  </div>
+                                              </ion-col>
+                                          </ion-row>
+                                          <h6 class="text-justify">Info:  {{post?.info}}</h6>
+                                      </ion-grid>   
+                                  </div>  
+                              </div>
+                          </div>
+                      </div>
+                      
+                      
+                  </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
   
-  <!-- Edit Post Modal -->
-  <div class="modal fade" id="updatePostModal" tabindex="-1" aria-labelledby="updatePostModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="updatePostModalLabel">Edit Post form "{{editPost?.countryDeparture}}"</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form #editForm="ngForm">
-            <div class="form-group">
-              <input type="hidden" ngModel="{{editPost?.id}}" name="id" class="form-control" id="id">
-              <label for="countryDeparture">Country Departure </label>
-              <input type="text" ngModel="{{editPost?.countryDeparture}}" name="countryDeparture" class="form-control" id="countryDeparture" placeholder="Country Departure" required>
+        <!-- Add post Modal -->
+        <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="addPostModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addPostModalLabel">Faire une annonce</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddPost(addForm)">
+                  <div class="form-group">
+                    <label for="countryDeparture">Country Departure </label>
+                    <input type="text" ngModel name="countryDeparture" class="form-control" id="countryDeparture" placeholder="Country Departure" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="info" for="cityDeparture">City Departure</label>
+                    <input type="text" ngModel name="cityDeparture" class="form-control" id="cityDeparture" placeholder="City Departure" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="countryArrival">Country Arrival</label>
+                    <input type="text" ngModel name="countryArrival" class="form-control" id="countryArrival" placeholder="Country Arrival" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cityArrival">City Arrival</label>
+                    <input type="text" ngModel name="cityArrival" class="form-control" id="cityArrival" placeholder="City Arrival" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="weight">Weight</label>
+                    <input type="text" ngModel name="weight" class="form-control" id="weight" placeholder="Weight (KG)" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" ngModel name="date" class="form-control" id="date" placeholder="(jj/mm/aaaa)" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="kiloPrice">Prix par kilo</label>
+                    <input type="text" ngModel name="kiloPrice" class="form-control" id="kiloPrice" placeholder="Valeur en '$'" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="docPrice">Prix par Document</label>
+                    <input type="text" ngModel name="docPrice" class="form-control" id="docPrice" placeholder="Valeur en '$'" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="info">Info</label>
+                    <input type="text" ngModel name="info" class="form-control" id="info" placeholder="Info" required>
+                  </div>
+            
+                  <div class="modal-footer">
+                    <button type="button" id="add-post-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="cityDeparture">City Departure</label>
-              <input type="text" ngModel="{{editPost?.cityDeparture}}" name="cityDeparture" class="form-control" id="cityDeparture" placeholder="City Departure" required>
+          </div>
+        </div> 
+      
+        <!-- Edit Post Modal -->
+        <div class="modal fade" id="updatePostModal" tabindex="-1" aria-labelledby="updatePostModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="updatePostModalLabel">Formolaire de modification "{{editPost?.date}}"</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form #editForm="ngForm">
+                  <div class="form-group">
+                    <input type="hidden" ngModel="{{editPost?.id}}" name="id" class="form-control" id="id">
+                    <label for="countryDeparture">Country Departure </label>
+                    <input type="text" ngModel="{{editPost?.countryDeparture}}" name="countryDeparture" class="form-control" id="countryDeparture" placeholder="Country Departure" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cityDeparture">City Departure</label>
+                    <input type="text" ngModel="{{editPost?.cityDeparture}}" name="cityDeparture" class="form-control" id="cityDeparture" placeholder="City Departure" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="countryArrival">Country Arrival</label>
+                    <input type="text" ngModel="{{editPost?.countryArrival}}" name="countryArrival" class="form-control" id="countryArrival" placeholder="Country Arrival" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cityArrival">City Arrival</label>
+                    <input type="text" ngModel="{{editPost?.cityArrival}}" name="cityArrival" class="form-control" id="cityArrival" placeholder="City Arrival" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="weight">Weight</label>
+                    <input type="text" ngModel="{{editPost?.weight}}" name="weight" class="form-control" id="weight" placeholder="Weight (KG)" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" ngModel="{{editPost?.date}}" name="date" class="form-control" id="date" placeholder="(01 Janvier)" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="kiloPrice">Prix par kilo</label>
+                    <input type="text" ngModel="{{editPost?.kiloPrice}}" name="kiloPrice" class="form-control" id="kiloPrice" placeholder="Valeur en '$'" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="docPrice">Prix par Document</label>
+                    <input type="text" ngModel="{{editPost?.docPrice}}" name="docPrice" class="form-control" id="docPrice" placeholder="Valeur en '$'" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="info">Info</label>
+                    <input type="text" ngModel="{{editPost?.info}}" name="info" class="form-control" id="info" placeholder="Info" required>
+                  </div>
+                  <input type="hidden" ngModel="{{editPost?.payment}}" name="payment" class="form-control" id="payment">
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button (click)="onUpdatePost(editForm.value)" type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="countryArrival">Country Arrival</label>
-              <input type="text" ngModel="{{editPost?.countryArrival}}" name="countryArrival" class="form-control" id="countryArrival" placeholder="Country Arrival" required>
-            </div>
-            <div class="form-group">
-              <label for="cityArrival">City Arrival</label>
-              <input type="text" ngModel="{{editPost?.cityArrival}}" name="cityArrival" class="form-control" id="cityArrival" placeholder="City Arrival" required>
-            </div>
-            <div class="form-group">
-              <label for="weight">Weight</label>
-              <input type="text" ngModel="{{editPost?.weight}}" name="weight" class="form-control" id="weight" placeholder="Weight (KG)" required>
-            </div>
-            <div class="form-group">
-              <label for="date">Date</label>
-              <input type="text" ngModel="{{editPost?.cityDeparture}}" name="date" class="form-control" id="date" placeholder="(jj/mm/aaaa)" required>
-            </div>
-            <div class="form-group">
-              <label for="kiloPrice">Prix par kilo</label>
-              <input type="text" ngModel="{{editPost?.date}}" name="kiloPrice" class="form-control" id="kiloPrice" placeholder="Valeur en '$'" required>
-            </div>
-            <div class="form-group">
-              <label for="docPrice">Prix par Document</label>
-              <input type="text" ngModel="{{editPost?.docPrice}}" name="docPrice" class="form-control" id="docPrice" placeholder="Valeur en '$'" required>
-            </div>
-            <div class="form-group">
-              <label for="info">Info</label>
-              <input type="text" ngModel="{{editPost?.info}}" name="info" class="form-control" id="info" placeholder="Info" required>
-            </div>
-
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button (click)="onUpdatePost(editForm.value)" type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- delete post Modal -->
-  <div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="deletePostModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deletePostModalLabel">Delete Post</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to delete this Post?</p>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button (click)="onDeletePost(deletePost.id)" type="button" class="btn btn-primary">Yes</button>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-    <div *ngIf="posts?.length==0" class="col-lg-12 col-md-12 col-xl-12">
-      <div class="alert alert-info" role="alert">
-        <h4 class="alert-heading"> NO POST</h4>
-        <P>No Post were found</P>
-      </div>
-    </div>
-  
-  </div>
+      
+        <!-- delete post Modal -->
+        <div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="deletePostModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deletePostModalLabel">Supprimer une annonce</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Etes-vous sur de vouloir supprimer l'annonce du {{deletePost?.date}}?</p>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                  <button (click)="onDeletePost(deletePost.id)" type="button" class="btn btn-primary">Oui</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div *ngIf="posts?.length==0" class="col-lg-12 col-md-12 col-xl-12">
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading"> PAS DE d'ANNONCE</h4>
+            <P>Auccune annonce trouvée </P>
+          </div>
+        </div>
 
-</ion-content>
+      </div> 
+  </ion-content>
