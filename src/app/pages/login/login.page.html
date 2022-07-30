@@ -30,8 +30,8 @@
           <form *ngIf="loginDisplay">
             <ion-grid class="ion-margin-top">
               <ion-row class="ion-justify-content-center">
-                <ion-col size="5"><ion-button color="primary" expand="block" id="login"><i class="bi bi-facebook"></i>Facebook</ion-button></ion-col>
-                <ion-col size="5"><ion-button color="danger" expand="block" id="login">Google</ion-button></ion-col>
+                <ion-col size="5"><ion-button color="primary" expand="block" id="login" (click)="facebookLogin()">Facebook</ion-button></ion-col>
+                <ion-col size="5"><ion-button color="danger" expand="block" id="login"(click)="googleLogin()">Google</ion-button></ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center">
                 <ion-col size="10">

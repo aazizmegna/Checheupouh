@@ -122,6 +122,14 @@ signInToAWS(email: HTMLInputElement, password: HTMLInputElement ) {
 }
 
 
+async facebookLogin() {
+  await Auth.federatedSignIn({customProvider: 'Facebook'});
+}
+
+async googleLogin() {
+  await Auth.federatedSignIn({customProvider: 'Google'});
+}
+
 
 //Cognito end
 

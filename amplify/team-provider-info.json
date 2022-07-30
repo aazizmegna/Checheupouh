@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-kamotech-dev-05046-authRole",
-      "UnauthRoleArn": "arn:aws:iam::431343468986:role/amplify-kamotech-dev-05046-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::431343468986:role/amplify-kamotech-dev-05046-authRole",
+      "AuthRoleName": "amplify-kamotechmobile-dev-152841-authRole",
+      "UnauthRoleArn": "arn:aws:iam::431343468986:role/amplify-kamotechmobile-dev-152841-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::431343468986:role/amplify-kamotechmobile-dev-152841-authRole",
       "Region": "eu-central-1",
-      "DeploymentBucketName": "amplify-kamotech-dev-05046-deployment",
-      "UnauthRoleName": "amplify-kamotech-dev-05046-unauthRole",
-      "StackName": "amplify-kamotech-dev-05046",
-      "StackId": "arn:aws:cloudformation:eu-central-1:431343468986:stack/amplify-kamotech-dev-05046/82050790-0f88-11ed-8812-0218abe11c8e",
-      "AmplifyAppId": "d3fmmphwhkr93g"
+      "DeploymentBucketName": "amplify-kamotechmobile-dev-152841-deployment",
+      "UnauthRoleName": "amplify-kamotechmobile-dev-152841-unauthRole",
+      "StackName": "amplify-kamotechmobile-dev-152841",
+      "StackId": "arn:aws:cloudformation:eu-central-1:431343468986:stack/amplify-kamotechmobile-dev-152841/27f928a0-1003-11ed-ab75-0240e0427b50",
+      "AmplifyAppId": "d775scnv7nlpp"
     },
     "categories": {
       "auth": {
-        "kamotech1ba66ca0": {}
+        "kamotechmobiled8be2c15": {}
       }
     }
   }

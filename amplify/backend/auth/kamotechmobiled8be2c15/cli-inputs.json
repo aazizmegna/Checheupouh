@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "kamotech1ba66ca0_identitypool_1ba66ca0",
+    "identityPoolName": "kamotechmobiled8be2c15_identitypool_d8be2c15",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "kamote1ba66ca0",
-    "userPoolName": "kamotech1ba66ca0_userpool_1ba66ca0",
+    "resourceNameTruncated": "kamoted8be2c15",
+    "userPoolName": "kamotechmobiled8be2c15_userpool_d8be2c15",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,15 +31,23 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "kamote1ba66ca0_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "kamoted8be2c15_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "1ba66ca0",
-    "resourceName": "kamotech1ba66ca0",
+    "sharedId": "d8be2c15",
+    "resourceName": "kamotechmobiled8be2c15",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
+    "useDefault": "defaultSocial",
+    "hostedUI": true,
     "usernameAttributes": [
       "email"
     ],
+    "hostedUIDomainName": "kamotechsellteskilos",
+    "authProvidersUserPool": [
+      "Facebook",
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:8100/home/\"],\"LogoutURLs\":[\"http://localhost:8100/login/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
