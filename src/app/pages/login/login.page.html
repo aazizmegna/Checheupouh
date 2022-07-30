@@ -21,11 +21,12 @@
         <ion-col size="4"></ion-col>
         <ion-col size="12" size-sm class="screen">
           <ion-row class="ion-justify-content-center">
-            <ion-col ><ion-button class="btnFormLogin" [(ngModel)]="loginDisplay" ngDefaultControl fill="outline" expand="block" (click)="callLoginForm()">Login</ion-button></ion-col>
-            <ion-col><ion-button class="btnFormSingup" [(ngModel)]="signupDisplay" ngDefaultControl fill="outline" expand="block" (click)="callSignupForm()">Sign Up</ion-button></ion-col>
+            <ion-col ><ion-button *ngIf="btnFormLogin" class="btnFormLogin" [ngStyle]="{'background-color' :  loginColor }" [(ngModel)]="loginDisplay" ngDefaultControl fill="outline" expand="block" (click)="callLoginForm()">Login</ion-button></ion-col>
+            <ion-col><ion-button *ngIf="btnFormSignup" class="btnFormLogin" [ngStyle]="{'background-color' :  signupColor }" [(ngModel)]="signupDisplay" ngDefaultControl fill="outline" expand="block" (click)="callSignupForm()">Sign Up</ion-button></ion-col>
           </ion-row>
 
           <!-- Login form-->
+        
           <form *ngIf="loginDisplay">
             <ion-grid class="ion-margin-top">
               <ion-row class="ion-justify-content-center">
@@ -34,15 +35,15 @@
               </ion-row>
               <ion-row class="ion-justify-content-center">
                 <ion-col size="10">
-                  <ion-input type="string" name="username" class="input-white" color="primary" placeholder="Email address"></ion-input>
+                  <input type="email" name="username" class="form-control" placeholder="Email address" #email>
                 </ion-col>
                 <ion-col size="10">
-                  <ion-input type="password" name="password" class="input-white mt-2" color="primary" placeholder="Password"></ion-input>
+                  <input type="password" name="password" class="form-control" placeholder="Password" #password>
                 <p class="forgetPass">Forget password</p>
                 </ion-col>
               </ion-row>
               <ion-row class="ion-justify-content-center ion-margin-top">
-                <ion-col size="10"><ion-button type="submit" fill="solid" color="secondary" expand="block" id="login" (click)="goToHomePage()">Login</ion-button></ion-col>
+                <ion-col size="10"><ion-button type="submit" fill="solid" color="secondary" expand="block" id="login" (click)="signInToAWS(email, password)">Login</ion-button></ion-col>
               </ion-row>
             </ion-grid>
           </form>
@@ -51,35 +52,41 @@
           <form *ngIf="signupDisplay">
             <ion-grid class="ion-margin-top">
               <ion-row class="ion-justify-content-center">
-                <ion-col size="5"><ion-button color="primary" expand="block" id="login">Facebook</ion-button></ion-col>
-                <ion-col size="5"><ion-button color="danger" expand="block" id="login">Google</ion-button></ion-col>
-              </ion-row>
-              <ion-row class="ion-justify-content-center">
                 <ion-col size="10">
-                  <ion-input type="string" name="firstName" class="input-white" color="primary" placeholder="First Name"></ion-input>
+                  <input type="string" name="Name" class="form-control" placeholder="Name" #name>
                 </ion-col>
                 <ion-col size="10">
-                  <ion-input type="string" name="lastName" class="input-white" color="primary" placeholder="Last Name"></ion-input>
+                  <input type="email" name="email" class="form-control" placeholder="Email address" #username>
                 </ion-col>
                 <ion-col size="10">
-                  <ion-input type="string" name="email" class="input-white" color="primary" placeholder="Email address"></ion-input>
-                </ion-col>
-                <ion-col size="10">
-                  <ion-input type="password" name="password" class="input-white" color="primary" placeholder="Password"></ion-input>
+                  <input type="password" name="password" class="form-control" placeholder="Password" #password>
                 </ion-col>
               </ion-row>
             </ion-grid>
             <ion-row class="ion-justify-content-center ion-margin-top">
               <ion-col size="10">
-                <ion-button expand="block" fill="solid" type="submit" color="secondary" (click)="callLoginForm()">Sign Up</ion-button>
+                <ion-button expand="block" fill="solid" type="submit" color="secondary" (click)="singUpToAWS(name,username,password)">Sign Up</ion-button>
               </ion-col>
             </ion-row>
           </form>
+
+          <!-- Email verification -->
+    
+          <div class="row row-center" *ngIf="toVerifyEmail">
+            <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="exampleInputverifycode1">Verifiacation Code</label>
+                      <input type="number" class="form-control" id="exampleInputverifycode1" aria-describedby="verifyCodeHelp" placeholder="Enter the code" #verifycode>
+                      <small id="emailHelp" class="form-text text-muted">Please enter the verification code that we sent to your email</small>
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="onVerify(verifycode)">Verify</button>
+            </div>
+        </div>
+
         </ion-col>
         
         <ion-col size="4"></ion-col>
       </ion-row>
     </ion-grid>
-  
   
 </ion-content>

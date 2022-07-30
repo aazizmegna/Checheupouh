@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kamotech-dev-05046-authRole",
+      "UnauthRoleArn": "arn:aws:iam::431343468986:role/amplify-kamotech-dev-05046-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::431343468986:role/amplify-kamotech-dev-05046-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-kamotech-dev-05046-deployment",
+      "UnauthRoleName": "amplify-kamotech-dev-05046-unauthRole",
+      "StackName": "amplify-kamotech-dev-05046",
+      "StackId": "arn:aws:cloudformation:eu-central-1:431343468986:stack/amplify-kamotech-dev-05046/82050790-0f88-11ed-8812-0218abe11c8e",
+      "AmplifyAppId": "d3fmmphwhkr93g"
+    },
+    "categories": {
+      "auth": {
+        "kamotech1ba66ca0": {}
+      }
+    }
+  }
+}
